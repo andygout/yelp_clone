@@ -39,8 +39,7 @@ feature "User can sign in and out" do
   context "User is not signed in" do
     it "should not be able to add restaurant" do
       visit('/')
-      click_link('Add a restaurant')
-      expect(page).to have_content('You need to sign in or sign up before continuing.')
+      expect(page).not_to have_content('Add a restaurant')
     end
   end
 end

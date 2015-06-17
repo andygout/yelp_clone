@@ -34,3 +34,24 @@ describe 'reviews' do
     end
   end
 end
+
+describe '#average_rating' do
+  context 'no reviews' do
+    it 'returns "N/A" when there are no reviews' do
+      restaurant = Restaurant.create(name: 'The Ivy')
+      expect(restaurant.average_rating).to eq 'N/A'
+    end
+  end
+
+  context 'multiple reviews' do
+    let(:user1) {User.create(email: 'test1@example.com', password: 'password')}
+    let(:user2) {User.create(email: 'test2@example.com', password: 'password')}
+
+    it 'returns the average' do
+     restaurant = Restaurant.create(name: 'The Ivy')
+     restaurant.reviews.create(user: user1, rating: 1)
+     restaurant.reviews.create(user: user2, rating: 5)
+     expect(restaurant.average_rating).to eq 3
+    end
+ end
+end
