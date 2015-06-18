@@ -60,7 +60,9 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   # get 'restaurants' => 'restaurants#index'
-  resources :restaurants do
-    resources :reviews
+  resources :restaurants, shallow: true do
+    resources :reviews do
+      resources :endorsements
+    end
   end
 end
