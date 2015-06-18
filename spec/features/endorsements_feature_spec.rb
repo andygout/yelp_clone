@@ -1,4 +1,6 @@
 require 'rails_helper'
+require_relative '../helpers/session_helpers'
+include Session
 
 feature 'endorsing reviews' do
   before do
@@ -7,7 +9,7 @@ feature 'endorsing reviews' do
   end
 
   scenario 'a user can endorse a review, which updates the review endorsement count' do
-    visit '/restaurants'
+    sign_up('test@test.com', 'testpassword')
     click_link 'Endorse KFC'
     expect(page).to have_content('1 endorsement')
   end
