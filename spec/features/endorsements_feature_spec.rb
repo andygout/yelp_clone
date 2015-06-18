@@ -10,7 +10,7 @@ feature 'endorsing reviews' do
 
   scenario 'a user can endorse a review, which updates the review endorsement count', js: true do
     sign_up('test@test.com', 'testpassword')
-    click_link 'Endorse KFC'
+    click_link 'Endorse'
     expect(page).to have_content('1 endorsement')
   end
 
