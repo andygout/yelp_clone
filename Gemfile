@@ -56,5 +56,5 @@ group :test do
   gem 'shoulda'
   gem 'rspec-collection_matchers'
   gem 'poltergeist'
-  gem 'database_cleaner'
+  gem 'aws-sdk', '< 2.0'
 end
