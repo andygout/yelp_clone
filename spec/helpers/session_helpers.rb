@@ -17,5 +17,3 @@ module Session
     click_button 'Leave Review'
   end
 end
-
-
